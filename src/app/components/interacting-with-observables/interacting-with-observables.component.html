@@ -1,0 +1,12 @@
+<div>
+    <h1>Interacting with Observables</h1> <button class="btnCustom" (click)="showElement()">Mostrar Elemento</button>
+      
+    <div class="containerAnimated">
+        <div class="animatedElement" [@openClose]="showDiv ? 'open' : 'closed'" >
+
+            <input [(ngModel)]="valueInput">
+            <button (click)="activeObservable(valueInput)" class="btn btn-primary">Enviar valor</button>
+        </div>
+    </div>
+   
+</div>

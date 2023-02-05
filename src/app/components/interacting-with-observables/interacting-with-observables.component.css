@@ -1,0 +1,36 @@
+.containerAnimated {
+
+    display: flex;
+    width: 100%;
+    height: 400px;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.animatedElement {
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 10px;
+    padding: 10px;
+    color: aliceblue;
+    height: 200px;
+    background-color: black;
+}
+
+.btnCustom {
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: black;
+    color: aliceblue;
+}
+
+input {
+    color: black;
+}
+
