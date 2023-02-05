@@ -3,22 +3,21 @@
 <p align="center">
     <img src='./src/assets/logo.png' alt="Logo" width="400">
 
-  <h3 align="center"></h3>
- <br />
+    <h3 align="center"></h3>
+     <br />
   <p align="center">
      Sumário
       <p align="center">
-  <a href="#sobre"> Sobre </a> |
-  <a href="#o-quesão-observáveis"> O que são observáveis? </a> |
-  <a href="#observações-sobre-subscribe()"> Observações sobre subscribe() </a> |
-  <a href="#como-criar-um-observável"> Como criar um observável </a> |
-  <a href="#observações"> Observações </a> |
-  <a href="#conclusão"> Conclusão </a>       
+        <a href="#sobre"> Sobre </a> |
+        <a href="#o-que-são-observáveis"> O que são observáveis? </a> |
+        <a href="#observações-sobre-subscribe"> Observações sobre subscribe() </a> |
+        <a href="#como-criar-um-observável"> Como criar um observável </a> |
+        <a href="#observações"> Observações </a> |
+        <a href="#conclusão"> Conclusão </a>       
        <br />
-    <br />
-    <h1 align="center">
- </h1>
-  </p>
+        <br />
+     <h1 align="center"></h1>
+    </p>
 </p>
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.7.
