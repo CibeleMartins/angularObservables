@@ -3,13 +3,12 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.7.
 
 ## Sobre
-
 Este repositório foi criado com o objetivo de fazer um código simples e de fácil entendimento para junto a documentação, ajudar mais pessoas entenderem o conceito de observáveis em Angular.
 
 ## O que são observáveis?
-<p>Primeiro, é muito importante entender que sempre existe um observável (algo a ser observado) e um observador (o que observa algo). Sendo assim, um observável consiste em um objeto importado de um pacote de terceiros, o RXJS e pode ser pensado como uma fonte de dados, algo que irá observar o retorno, ou execução de uma tarefa assíncrona, ou a execucao de código/evento que pode acontecer após a interação do usuário, por exemplo, e com base nisso o observável executa algum código.</p>
+<p>Primeiro, é muito importante entender que sempre existe um observável (algo a ser observado) e um observador (o que observa algo). Sendo assim, um observável consiste em um objeto Angular ou que pode ser importado de um pacote de terceiros, o RXJS. Além disso pode ser pensado como uma fonte de dados, que com a ajuda de um observador, irá observar o retorno, ou execução de uma tarefa assíncrona, ou a execucao de código/evento que pode acontecer após a interação do usuário, por exemplo, e com base nisso o observável informa o observador e então, é possível executar algum código.</p>
 
-<p>Tendo em vista, que sempre há um observável, observador e, entre eles, um fluxo de código, pode-se pensar que a função subscribe() é um observador. Veja no exemplo de código abaixo:</p>
+<p>Tendo em vista, que sempre há um observável, observador e, entre eles, um fluxo de código, pode-se pensar que, se tratando de observáveis Angular, o método subscribe() é um observador. Veja no exemplo de código abaixo:</p>
 
 
 ```html
@@ -30,8 +29,8 @@ Este repositório foi criado com o objetivo de fazer um código simples e de fá
     }
 ```
 
-<p>Neste exemplo, quando o usuário clica em um dos links ele passa para rota 'user' o id do usuário clicado, mas é a função subscribe() que fica observando a mudança desses id's, para que com base nisso, possa mostrá-los no componente 'app-user'.</p> 
-<p>Portanto, os observáveis também podem ser pensados como construções, que assinamos/inscrevemos para sermos informados sobre mudanças que acontecem após a execução de algum código. Nesse caso, a mudança do parametro da rota após o clique do usuário.</p>
+<p>Neste exemplo, quando o usuário clica em um dos links ele passa para rota 'user' o id do usuário clicado, mas é o método subscribe() que fica observando a mudança desses id's, para que com base nisso, possa alterar a propriedade que mostra o id no componente 'app-user'.</p> 
+<p>Portanto, os observáveis também podem ser pensados como construções, que assinamos/inscrevemos para sermos informados sobre mudanças que acontecem após a execução de algum código que está sendo observado. Nesse caso, a mudança do parametro da rota após o clique do usuário.</p>
 
 ## Um outro exemplo
 
@@ -49,9 +48,9 @@ Este repositório foi criado com o objetivo de fazer um código simples e de fá
 
 <p>1 - Neste trecho de código por exemplo, o observável não deixa de emitir os intervalos após a rota/componente ser deixado, ou após o usuário navegar para outra rota da aplicação.</p>
 
-<p>2 - Podem ter observáveis que irão emitir um valor uma única vez, como por exemplo, observáveis para requisicoes HTTTP.</p>
+<p>2 - Podem ter observáveis que irão emitir um valor uma única vez, como por exemplo, observáveis para requisições HTTTP.</p>
 
-<p>3 - Quando for utilizado observáveis como o do exemplo acima, que ficam observando e emitindo dados após a execução de algum código ou a inicializacao de um componente, para que o observável pare e deixe de observar qualquer coisa após o componente/rota ser deixado, é necessário cancelar o método subscribe()/o que ele está retornando, e isso deve ser feito dentro do método ngOnDestroy, que é executado no momento/ciclo de vida da destruição do componente.</p>
+<p>3 - Quando for utilizado observáveis como o do exemplo acima, emitindo dados após a execução de algum código ou a inicializacao de um componente, para que o observável pare e deixe de emitir novos valores após o componente/rota ser deixado, é necessário cancelar o método subscribe()/o que ele está retornando, e isso deve ser feito dentro do método ngOnDestroy, que é executado no momento/ciclo de vida da destruição do componente.</p>
 
 ```javascript
     ngOnDestroy(): void {
@@ -59,7 +58,7 @@ Este repositório foi criado com o objetivo de fazer um código simples e de fá
     }
 ```
 
-<p>Dessa maneira, ao deixar a rota/componente, deixa de ser executado todo e qualquer dado observado e retornado pelo observável. No entando, note, que isso só é possível quando armazenada tudo o que é retornado pelo subscribe() em alguma propriedade no componente.</p>
+<p>Dessa maneira, ao deixar a rota/componente, deixa de ser executado todo e qualquer dado observável e retorno do subscribe(). No entando, note, que isso só é possível quando armazenado tudo o que é retornado pelo subscribe() em alguma propriedade no componente.</p>
 
 ```typescript
     private firstSubscription: Subscription;
@@ -70,7 +69,6 @@ Este repositório foi criado com o objetivo de fazer um código simples e de fá
 <p> 1 - Aquele observável só retornava algo/informava ao componente alguma mudança após o usuário clicar em algum link.</p>
 
 <p> 2 - Porque <strong>os observáveis Angular são gerenciados pelo Angular, portanto, isso inclui o cancelamento/unsubscribe() do observável, sem a necessidade de faze-lo manualmente.</strong><p>
-
 
 ## Observações sobre o subscribe()
 
@@ -93,7 +91,7 @@ Este repositório foi criado com o objetivo de fazer um código simples e de fá
 
 ## Como criar um observável
 
-<p> O Angular tem muitos observáveis e utiliza da função subscribe() como forma de observar as mudanças/retornos após algum fluxo de código ser executado. No entanto, também é possível, criar os seus próprios observáveis. Vamos fazer isso aqui para entendermos melhor observável e observador!</p>
+<p> O Angular tem muitos observáveis e utiliza do método subscribe() como forma de observar as mudanças/retornos após algum fluxo de código ser executado dentro do observável. No entanto, também é possível, criar os seus próprios observáveis. Vamos fazer isso aqui para entendermos melhor observável e observador!</p>
 
 <p> Primeiro é preciso importar o observável do pacote RXJS:</p>
 
