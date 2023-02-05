@@ -26,7 +26,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 Este repositório foi criado com o objetivo de fazer um código simples e de fácil entendimento para junto a documentação, ajudar mais pessoas entenderem o conceito de observáveis em Angular.
 
 ## O que são observáveis?
-<p>Primeiro, é muito importante entender que sempre existe um observável (algo a ser observado) e um observador (o que observa algo). Sendo assim, um observável consiste em um objeto Angular ou que pode ser importado de um pacote de terceiros, o RXJS. Além disso pode ser pensado como uma fonte de dados, que com a ajuda de um observador, irá observar o retorno, ou execução de uma tarefa assíncrona, ou a execucao de código/evento que pode acontecer após a interação do usuário, por exemplo, e com base nisso o observável informa o observador e então, é possível executar algum código.</p>
+<p>Primeiro, é muito importante entender que sempre existe um observável (algo a ser observado) e um observador (o que observa algo). Sendo assim, um observável consiste em um objeto Angular ou que pode ser importado de um pacote de terceiros, nesse repositório, foi utilizado o RXJS. Além disso pode ser pensado como uma fonte de dados, que com a ajuda de um observador, irá observar o retorno, ou execução de uma tarefa assíncrona, ou a execucao de código/evento que pode acontecer após a interação do usuário, por exemplo, e com base nisso o observável informa o observador e então, é possível executar algum código.</p>
 
 <p>Tendo em vista, que sempre há um observável, observador e, entre eles, um fluxo de código, pode-se pensar que, se tratando de observáveis Angular, o método subscribe() é um observador. Veja no exemplo de código abaixo:</p>
 
