@@ -93,10 +93,10 @@ Este repositório foi criado com o objetivo de fazer um código simples e de fá
 
 <p> O Angular tem muitos observáveis e utiliza do método subscribe() como forma de observar as mudanças/retornos após algum fluxo de código ser executado dentro do observável. No entanto, também é possível, criar os seus próprios observáveis. Vamos fazer isso aqui para entendermos melhor observável e observador!</p>
 
-<p> Primeiro é preciso importar o observável do pacote RXJS:</p>
+<p> Primeiro é preciso importar o observável e também a Subscription do pacote RXJS:</p>
 
 ```javascript
-    import { interval, Subscription, Observable } from 'rxjs';
+    import { Subscription, Observable } from 'rxjs';
 ```
 <p> Em segundo, é necessário instanciar este objeto e definir o tipo do observável:<p>
 
@@ -123,11 +123,11 @@ Este repositório foi criado com o objetivo de fazer um código simples e de fá
     });
 ```
 
-<p> Perceba que através dos métodos do observador, conseguimos informar quando o nosso observável está lidando com novos dados, quando ele pode ser completado e quando ele deve apresentar algum erro.</p>
+<p> Perceba que através dos métodos do observador, conseguimos informar quando o nosso observável está lidando com novos dados, quando ele pode ser completado/concluído e quando ele deve apresentar algum erro.</p>
 
-<p> No exemplo acima, nosso observável está lidando com os números que são contados a cada intervalo. Quando o contador chega em 3, o observável é concluído e informa isso ao observador, se ele passar de 7, o que nesse caso não tem como acontecer, mas só a nível de exemplo mesmo, ele informaria um erro ao observador</p>
+<p> No exemplo acima, nosso observável está lidando com os números que são contados a cada intervalo. Quando o contador chega em 3, o observável é concluído e informa isso ao observador, se ele passar de 7, o que nesse caso não tem como acontecer, mas só a nível de exemplo mesmo, ele informaria um erro ao observador.</p>
 
-<p> Mas e agora? <strong>Como o observador pode mostrar esses dados observáveis e informar algo, ou executar algo que gere alguma mudança na aplicação?</strong> Nós podemos usar a função <strong>SUBSCRIBE()!!</strong> Veja um exemplo de código abaixo:</p>
+<p> Mas e agora? <strong>Como o observador pode mostrar esses dados observáveis e informar algo, ou executar algo que gere alguma mudança na aplicação?</strong> Nós podemos usar o método <strong>SUBSCRIBE()!!</strong> Veja um exemplo de código abaixo:</p>
 
 ```javascript
     this.firstSubscription = customObservable.subscribe((count) => {
