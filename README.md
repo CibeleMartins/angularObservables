@@ -36,7 +36,6 @@ Este repositório foi criado com o objetivo de fazer um código simples e de fá
 ## Um outro exemplo
 
 ```javascript
-
     import { interval, Subscription} from 'rxjs';
 
     ngOnInit() {
@@ -52,7 +51,7 @@ Este repositório foi criado com o objetivo de fazer um código simples e de fá
 
 <p>2 - Podem ter observáveis que irão emitir um valor uma única vez, como por exemplo, observáveis para requisicoes HTTTP.</p>
 
-<p>3 - Quando for utilizado observáveis como o do exemplo acima, que ficam observando e emitindo dados após a execução de algum código ou a inicializacao de um componente, para que o observável pare e deixe de observar qualquer coisa após o componente/rota ser deixado, é necessário cancelar o método subscribe(), e isso deve ser feito dentro do método ngOnDestroy, que é executado no momento/ciclo de vida da destruição do componente.</p>
+<p>3 - Quando for utilizado observáveis como o do exemplo acima, que ficam observando e emitindo dados após a execução de algum código ou a inicializacao de um componente, para que o observável pare e deixe de observar qualquer coisa após o componente/rota ser deixado, é necessário cancelar o método subscribe()/o que ele está retornando, e isso deve ser feito dentro do método ngOnDestroy, que é executado no momento/ciclo de vida da destruição do componente.</p>
 
 ```javascript
     ngOnDestroy(): void {
@@ -60,9 +59,72 @@ Este repositório foi criado com o objetivo de fazer um código simples e de fá
     }
 ```
 
-<p>Dessa maneira, ao deixar a rota/componente, deixa de ser executado todo e qualquer dado observado e retornado pelo observável.</p>
+<p>Dessa maneira, ao deixar a rota/componente, deixa de ser executado todo e qualquer dado observado e retornado pelo observável. No entando, note, que isso só é possível quando armazenada tudo o que é retornado pelo subscribe() em alguma propriedade no componente.</p>
+
+```typescript
+    private firstSubscription: Subscription;
+```
+
+<p>Talvez, você esteja se perguntando agora: "Porque no primeiro exemplo, não foi necessário cancelar o subscribe()?"</p>
+
+<p> 1 - Aquele observável só retornava algo/informava ao componente alguma mudança após o usuário clicar em algum link.</p>
+
+<p> 2 - Porque <strong>os observáveis Angular são gerenciados pelo Angular, portanto, isso inclui o cancelamento/unsubscribe() do observável, sem a necessidade de faze-lo manualmente.</strong><p>
+
+
+## Observações sobre o subscribe()
+
+<p> No exemplos acima, podemos ver que o método subscribe() está sendo chamado através de diferentes observáveis, sendo informado sobre algumas mudanças e, executando algum código com base nisso. Mas o subscribe() pode receber até 3 parametros, que podem ser entendidos como diferentes maneiras de lidar com o que é observado. Veja no exemplo abaixo: </p>
+
+```javascript
+    subscribe(
+      valor => {
+        // code
+      },
+      erro => {
+        //code
+      },
+      conclusao => {
+        // code
+      });
+```
+
+<p> Sendo assim, o subscribe() pode executar diferentes códigos p/ cada fase do observável: retorno dados, erro nos dados ou a conclusão do observável.</p>
 
 ## Como criar um observável
 
 <p> O Angular tem muitos observáveis e utiliza da função subscribe() como forma de observar as mudanças/retornos após algum fluxo de código ser executado. No entanto, também é possível, criar os seus próprios observáveis. Vamos fazer isso aqui para entendermos melhor observável e observador!</p>
+
+<p> Primeiro é preciso importar o observável do pacote RXJS:</p>
+
+```javascript
+    import { interval, Subscription, Observable } from 'rxjs';
+```
+<p> Em segundo, é necessário instanciar este objeto e definir o tipo do observável:<p>
+
+```typescript
+   const customObservable = new Observable<number>()
+```
+<p>Em terceiro, é necessário definir o que vai ser informado ao seu observador a partir do observável. Isso é feito através de uma arrow function, inserida no parametro do observável, a qual recebe como parametro um observador:</p>
+
+
+```javascript
+    const customObservable = new Observable<number>((observator) => { <------- arrow function que recebe o observador
+      let count = 0;
+      setInterval(() => {
+        observator.next(count); <------ método do observador
+        count++;
+
+        if(count === 3) {
+          observator.complete() <------ método do observador
+        }
+
+        if (count > 7) {
+          observator.error(new Error("Maior que 7!")) <------ método do observador
+        }
+      }, 1000);
+    });
+```
+
+
 
