@@ -126,5 +126,7 @@ Este repositório foi criado com o objetivo de fazer um código simples e de fá
     });
 ```
 
+<p> Perceba que através dos métodos do observador, conseguimos informar quando o nosso observável está lidando com novos dados, quando ele pode ser completado e quando ele deve apresentar algum erro.</p>
 
+<p> No exemplo acima, nosso observável está lidando com os números que são contados a cada intervalo. Quando o contador chega em 3, o observável é concluído e informa isso ao observador, se ele passar de 7, o que nesse caso não tem como acontecer, mas só a nível de exemplo mesmo, ele informaria um erro ao observador</p>
 
