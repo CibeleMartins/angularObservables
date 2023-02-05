@@ -2,9 +2,6 @@
 
 <p align="center">
     <img src='./src/assets/logo.png' alt="Logo" width="400">
-
-    <h3 align="center"></h3>
-     <br />
   <p align="center">
      Sumário
       <p align="center">
