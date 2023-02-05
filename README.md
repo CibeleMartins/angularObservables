@@ -74,7 +74,7 @@ Este repositório foi criado com o objetivo de fazer um código simples e de fá
 
 ## Observações sobre o subscribe()
 
-<p> No exemplos acima, podemos ver que o método subscribe() está sendo chamado através de diferentes observáveis, sendo informado sobre algumas mudanças e, executando algum código com base nisso. Mas o subscribe() pode receber até 3 parametros, que podem ser entendidos como diferentes maneiras de lidar com o que é observado. Veja no exemplo abaixo: </p>
+<p> No exemplos acima, podemos ver que o método subscribe() está sendo chamado através de diferentes observáveis, sendo informado sobre algumas mudanças e, executando algum código com base nisso. Mas o subscribe() pode receber até 3 parametros, que podem ser entendidos como diferentes maneiras de lidar com o que é observado e posteriormente informado. Veja no exemplo abaixo: </p>
 
 ```javascript
     subscribe(
@@ -107,22 +107,21 @@ Este repositório foi criado com o objetivo de fazer um código simples e de fá
 ```
 <p>Em terceiro, é necessário definir o que vai ser informado ao seu observador a partir do observável. Isso é feito através de uma arrow function, inserida no parametro do observável, a qual recebe como parametro um observador:</p>
 
-
 ```javascript
     const customObservable = new Observable<number>((observator) => { <------- arrow function que recebe o observador
       let count = 0;
-      setInterval(() => {
-        observator.next(count); <------ método do observador
-        count++;
+        setInterval(() => {
+            observator.next(count); <------ método do observador
+            count++;
 
-        if(count === 3) {
-          observator.complete() <------ método do observador
-        }
+            if(count === 3) {
+            observator.complete() <------ método do observador
+            }
 
-        if (count > 7) {
-          observator.error(new Error("Maior que 7!")) <------ método do observador
-        }
-      }, 1000);
+            if (count > 7) {
+            observator.error(new Error("Maior que 7!")) <------ método do observador
+            }
+        }, 1000);
     });
 ```
 
@@ -130,3 +129,23 @@ Este repositório foi criado com o objetivo de fazer um código simples e de fá
 
 <p> No exemplo acima, nosso observável está lidando com os números que são contados a cada intervalo. Quando o contador chega em 3, o observável é concluído e informa isso ao observador, se ele passar de 7, o que nesse caso não tem como acontecer, mas só a nível de exemplo mesmo, ele informaria um erro ao observador</p>
 
+<p> Mas e agora? <strong>Como o observador pode mostrar esses dados observáveis e informar algo, ou executar algo que gere alguma mudança na aplicação?</strong> Nós podemos usar a função <strong>SUBSCRIBE()!!</strong> Veja um exemplo de código abaixo:</p>
+
+```javascript
+    this.firstSubscription = customObservable.subscribe((count) => {
+        console.log(count); <------ mostra no console cada numero contado emitido pelo observável e informado ao observador.
+    }, (error)=> {  
+        alert(error.message) <------- emite um alert com o mensagem de erro definida e informada ao observador, no observável.
+    }, ()=> {
+       alert("Observável concluído!") <------ emite um alert quando o valor contado pelo observável é 3 e é informado ao observador como concluído.
+    });
+```
+
+<p> Observe que quando um observável é utilizado dessa maneira, de um jeito 'customizado'/quando você cria o seu próprio observável, é possível definir quando ele está gerando novos dados, quando ele pode emitir um erro e quando ele pode ser concluído.</p><strong>Mas quando utilizamos observáveis do Angular</strong>, isso é definido pelo Angular. O que podemos fazer é criar códigos, reagir ou atés mesmo acessar as informações observadas nesses diferentes momentos de um observável, com o método subscribe().</p>
+
+## Observações
+<p>Quando um observável é concluído ele não retorna, nem informa mais nada ao observador. No entanto isso é diferente de quando ele informa ao observador sobre um erro. Mas em ambos os casos, na conclusão ou no erro de um observável, é desnecessário cancelar o subscribe() como informado anteriormente, pois eles não emitem novos valores. Isso só deve ser implementado nos casos em que um observável antes de ser concluído ou antes do erro, puder emitir dados de maneira constante e, antes dos referidos momentos, o componente ou rota puder ser deixado e o observável não for um observável Angular.</p>
+
+## Conclusão
+<p> Pode ser que você tenha olhado os exemplos acima, e até mesmo o código nesse repositório e pensado: "Para que eu usaria esse código?"</p>
+<p>É a resposta é que muito provavelmente você não precise utilizá-lo para algum fim muito específico, mas ideia aqui é entender o que são os observáveis e o que acontece dentro deles. Raramente você irá precisar construir os seus próprios observáveis, geralmente utilizamos os de bibliotecas ou do próprio Angular, mas ainda assim é muito importante entender como eles funcionam.</p>
