@@ -23,7 +23,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 Este repositório foi criado com o objetivo de fazer um código simples e de fácil entendimento para junto a documentação, ajudar mais pessoas entenderem o conceito de observáveis em Angular.
 
 ## O que são observáveis?
-<p>Primeiro, é muito importante entender que sempre existe um observável (algo a ser observado) e um observador (o que observa algo). Sendo assim, um observável consiste em um objeto Angular ou que pode ser importado de um pacote de terceiros, nesse repositório, foi utilizado o RXJS. Além disso pode ser pensado como uma fonte de dados, que com a ajuda de um observador, irá observar o retorno, ou execução de uma tarefa assíncrona, ou a execucao de código/evento que pode acontecer após a interação do usuário, por exemplo, e com base nisso o observável informa o observador e então, é possível executar algum código.</p>
+<p>Primeiro, é muito importante entender que sempre existe um observável (algo a ser observado) e um observador (o que observa algo). Sendo assim, um observável consiste em um objeto Angular ou que pode ser importado de um pacote de terceiros, nesse repositório, foi utilizado o RXJS. Além disso pode ser pensado como uma fonte de dados, que com a ajuda de um observador, irá observar o retorno, ou execução de uma tarefa assíncrona, ou a execução de código/evento que pode acontecer após a interação do usuário, por exemplo, e com base nisso o observável passa pelo observador e então, é possível executar algum código.</p>
 
 <p>Tendo em vista, que sempre há um observável, observador e, entre eles, um fluxo de código, pode-se pensar que, se tratando de observáveis Angular, o método subscribe() é um observador. Veja no exemplo de código abaixo:</p>
 
@@ -63,7 +63,7 @@ Este repositório foi criado com o objetivo de fazer um código simples e de fá
 
 <p>Neste exemplo, foi importado um observável do pacote RXJS, que incrementa um valor a cada segundo, e o observador -> subscribe() observa isso e mostra no console. Mas tem algumas coisas que são mutio importantes sobre os observáveis e é preciso estar ciente:</p> 
 
-<p>1 - Neste trecho de código por exemplo, o observável não deixa de emitir os intervalos após a rota/componente ser deixado, ou após o usuário navegar para outra rota da aplicação.</p>
+<p>1 - Neste trecho de código por exemplo, o observável não deixa de emitir os intervalos após a rota/componente ser deixado/após o usuário navegar para outra rota da aplicação.</p>
 
 <p>2 - Podem ter observáveis que irão emitir um valor uma única vez, como por exemplo, observáveis para requisições HTTTP.</p>
 
