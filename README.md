@@ -163,6 +163,6 @@ Este repositório foi criado com o objetivo de fazer um código simples e de fá
 
 ## Conclusão
 <p> Pode ser que você tenha olhado os exemplos acima, e até mesmo o código nesse repositório e pensado: "Para que eu usaria esse código?"</p>
-<p>É a resposta é que muito provavelmente você não precise utilizá-lo para algum fim muito específico, mas ideia aqui é entender o que são os observáveis e o que acontece dentro deles. Raramente você irá precisar construir os seus próprios observáveis, geralmente utilizamos os de bibliotecas ou do próprio Angular, mas ainda assim é muito importante entender como eles funcionam.</p>
+<p>E a resposta é que muito provavelmente você não precise utilizá-lo para algum fim muito específico, mas ideia aqui é entender o que são os observáveis e o que acontece dentro deles. Raramente você irá precisar construir os seus próprios observáveis, geralmente utilizamos os de bibliotecas ou do próprio Angular, mas ainda assim é muito importante entender como eles funcionam.</p>
 
 Sinta-se a vontade para explorar todo seu conhecimento utilizando este projeto, qualquer dúvida ou sugestão me procure no <a href='www.linkedin.com/in/cibelemartinssss'>Linkedin</a>.
